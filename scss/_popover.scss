@@ -160,7 +160,7 @@
   color: $popover-header-color;
   background-color: $popover-header-bg;
   border-bottom: $popover-border-width solid darken($popover-header-bg, 5%);
-  @include border-top-radius($popover-inner-border-radius);
+  @include border-block-start-radius($popover-inner-border-radius);
 
   &:empty {
     display: none;

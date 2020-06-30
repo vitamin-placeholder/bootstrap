@@ -12,7 +12,11 @@ $utilities: map-merge(
     "float": (
       responsive: true,
       property: float,
-      values: left right none
+      values: (
+        start: left,
+        end: right,
+        none: none,
+      )
     ),
     "overflow": (
       property: overflow,
@@ -46,29 +50,33 @@ $utilities: map-merge(
         0: 0,
       )
     ),
-    "border-top": (
+    "border-block-start": (
       property: border-top,
+      class: border-bs,
       values: (
         null: $border-width solid $border-color,
         0: 0,
       )
     ),
-    "border-right": (
+    "border-inline-end": (
       property: border-right,
+      class: border-ie,
       values: (
         null: $border-width solid $border-color,
         0: 0,
       )
     ),
-    "border-bottom": (
+    "border-block-end": (
       property: border-bottom,
+      class: border-be,
       values: (
         null: $border-width solid $border-color,
         0: 0,
       )
     ),
-    "border-left": (
+    "border-inline-start": (
       property: border-left,
+      class: border-is,
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -80,9 +88,9 @@ $utilities: map-merge(
       values: map-merge($theme-colors, ("white": $white))
     ),
     // Sizing utilities
-    "width": (
+    "inline-size": (
       property: width,
-      class: w,
+      class: is,
       values: (
         25: 25%,
         50: 50%,
@@ -91,9 +99,9 @@ $utilities: map-merge(
         auto: auto
       )
     ),
-    "max-width": (
+    "max-inline-size": (
       property: max-width,
-      class: mw,
+      class: max-is,
       values: (100: 100%)
     ),
     "viewport-width": (
@@ -106,9 +114,9 @@ $utilities: map-merge(
       class: min-vw,
       values: (100: 100vw)
     ),
-    "height": (
+    "block-size": (
       property: height,
-      class: h,
+      class: bs,
       values: (
         25: 25%,
         50: 50%,
@@ -117,9 +125,9 @@ $utilities: map-merge(
         auto: auto
       )
     ),
-    "max-height": (
+    "max-block-size": (
       property: max-height,
-      class: mh,
+      class: max-bs,
       values: (100: 100%)
     ),
     "viewport-height": (
@@ -236,40 +244,40 @@ $utilities: map-merge(
       class: m,
       values: map-merge($spacers, (auto: auto))
     ),
-    "margin-x": (
+    "margin-inline": (
       responsive: true,
       property: margin-right margin-left,
-      class: mx,
+      class: mi,
       values: map-merge($spacers, (auto: auto))
     ),
-    "margin-y": (
+    "margin-block": (
       responsive: true,
       property: margin-top margin-bottom,
-      class: my,
-      values: map-merge($spacers, (auto: auto))
-    ),
-    "margin-top": (
-      responsive: true,
-      property: margin-top,
-      class: mt,
-      values: map-merge($spacers, (auto: auto))
-    ),
-    "margin-right": (
-      responsive: true,
-      property: margin-right,
-      class: mr,
-      values: map-merge($spacers, (auto: auto))
-    ),
-    "margin-bottom": (
-      responsive: true,
-      property: margin-bottom,
       class: mb,
       values: map-merge($spacers, (auto: auto))
     ),
-    "margin-left": (
+    "margin-block-start": (
+      responsive: true,
+      property: margin-top,
+      class: mbs,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-inline-end": (
+      responsive: true,
+      property: margin-right,
+      class: mie,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-block-end": (
+      responsive: true,
+      property: margin-bottom,
+      class: mbe,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-inline-start": (
       responsive: true,
       property: margin-left,
-      class: ml,
+      class: mis,
       values: map-merge($spacers, (auto: auto))
     ),
     // Negative margin utilities
@@ -279,40 +287,40 @@ $utilities: map-merge(
       class: m,
       values: $negative-spacers
     ),
-    "negative-margin-x": (
+    "negative-margin-inline": (
       responsive: true,
       property: margin-right margin-left,
-      class: mx,
+      class: mi,
       values: $negative-spacers
     ),
-    "negative-margin-y": (
+    "negative-margin-block": (
       responsive: true,
       property: margin-top margin-bottom,
-      class: my,
-      values: $negative-spacers
-    ),
-    "negative-margin-top": (
-      responsive: true,
-      property: margin-top,
-      class: mt,
-      values: $negative-spacers
-    ),
-    "negative-margin-right": (
-      responsive: true,
-      property: margin-right,
-      class: mr,
-      values: $negative-spacers
-    ),
-    "negative-margin-bottom": (
-      responsive: true,
-      property: margin-bottom,
       class: mb,
       values: $negative-spacers
     ),
-    "negative-margin-left": (
+    "negative-margin-block-start": (
+      responsive: true,
+      property: margin-top,
+      class: mbs,
+      values: $negative-spacers
+    ),
+    "negative-margin-inline-end": (
+      responsive: true,
+      property: margin-right,
+      class: mie,
+      values: $negative-spacers
+    ),
+    "negative-margin-block-end": (
+      responsive: true,
+      property: margin-bottom,
+      class: mbe,
+      values: $negative-spacers
+    ),
+    "negative-margin-inline-start": (
       responsive: true,
       property: margin-left,
-      class: ml,
+      class: mis,
       values: $negative-spacers
     ),
     // Padding utilities
@@ -322,40 +330,40 @@ $utilities: map-merge(
       class: p,
       values: $spacers
     ),
-    "padding-x": (
+    "padding-inline": (
       responsive: true,
       property: padding-right padding-left,
-      class: px,
+      class: pi,
       values: $spacers
     ),
-    "padding-y": (
+    "padding-block": (
       responsive: true,
       property: padding-top padding-bottom,
-      class: py,
-      values: $spacers
-    ),
-    "padding-top": (
-      responsive: true,
-      property: padding-top,
-      class: pt,
-      values: $spacers
-    ),
-    "padding-right": (
-      responsive: true,
-      property: padding-right,
-      class: pr,
-      values: $spacers
-    ),
-    "padding-bottom": (
-      responsive: true,
-      property: padding-bottom,
       class: pb,
       values: $spacers
     ),
-    "padding-left": (
+    "padding-block-start": (
+      responsive: true,
+      property: padding-top,
+      class: pbs,
+      values: $spacers
+    ),
+    "padding-inline-end": (
+      responsive: true,
+      property: padding-right,
+      class: pie,
+      values: $spacers
+    ),
+    "padding-block-end": (
+      responsive: true,
+      property: padding-bottom,
+      class: pbe,
+      values: $spacers
+    ),
+    "padding-inline-start": (
       responsive: true,
       property: padding-left,
-      class: pl,
+      class: pis,
       values: $spacers
     ),
     // Text
@@ -378,7 +386,11 @@ $utilities: map-merge(
       responsive: true,
       property: text-align,
       class: text,
-      values: left right center
+      values: (
+        start: left,
+        end: right,
+        center: center,
+      )
     ),
     "color": (
       property: color,
@@ -470,24 +482,24 @@ $utilities: map-merge(
         0: 0,
       )
     ),
-    "rounded-top": (
+    "rounded-block-start": (
       property: border-top-left-radius border-top-right-radius,
-      class: rounded-top,
+      class: rounded-bs,
       values: (null: $border-radius)
     ),
-    "rounded-right": (
+    "rounded-inline-end": (
       property: border-top-right-radius border-bottom-right-radius,
-      class: rounded-right,
+      class: rounded-ie,
       values: (null: $border-radius)
     ),
-    "rounded-bottom": (
+    "rounded-block-end": (
       property: border-bottom-right-radius border-bottom-left-radius,
-      class: rounded-bottom,
+      class: rounded-be,
       values: (null: $border-radius)
     ),
-    "rounded-left": (
+    "rounded-inline-start": (
       property: border-bottom-left-radius border-top-left-radius,
-      class: rounded-left,
+      class: rounded-is,
       values: (null: $border-radius)
     ),
     "visibility": (

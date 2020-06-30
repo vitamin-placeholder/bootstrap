@@ -116,7 +116,7 @@
   justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
   padding: $modal-header-padding;
   border-bottom: $modal-header-border-width solid $modal-header-border-color;
-  @include border-top-radius($modal-content-inner-border-radius);
+  @include border-block-start-radius($modal-content-inner-border-radius);
 
   .close {
     padding: $modal-header-padding;
@@ -150,7 +150,7 @@
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
   padding: $modal-inner-padding - $modal-footer-margin-between / 2;
   border-top: $modal-footer-border-width solid $modal-footer-border-color;
-  @include border-bottom-radius($modal-content-inner-border-radius);
+  @include border-block-end-radius($modal-content-inner-border-radius);
 
   // Place margin between footer elements
   // This solution is far from ideal because of the universal selector usage,

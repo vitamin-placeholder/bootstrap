@@ -53,11 +53,11 @@
   border: $list-group-border-width solid $list-group-border-color;
 
   &:first-child {
-    @include border-top-radius(inherit);
+    @include border-block-start-radius(inherit);
   }
 
   &:last-child {
-    @include border-bottom-radius(inherit);
+    @include border-block-end-radius(inherit);
   }
 
   &.disabled,
@@ -99,13 +99,13 @@
 
       > .list-group-item {
         &:first-child {
-          @include border-bottom-left-radius($list-group-border-radius);
-          @include border-top-right-radius(0);
+          @include border-end-start-radius($list-group-border-radius);
+          @include border-start-end-radius(0);
         }
 
         &:last-child {
-          @include border-top-right-radius($list-group-border-radius);
-          @include border-bottom-left-radius(0);
+          @include border-start-end-radius($list-group-border-radius);
+          @include border-end-start-radius(0);
         }
 
         &.active {

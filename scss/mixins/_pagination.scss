@@ -10,13 +10,13 @@
     @if $pagination-margin-left == (-$pagination-border-width) {
       &:first-child {
         .page-link {
-          @include border-left-radius($border-radius);
+          @include border-inline-start-radius($border-radius);
         }
       }
 
       &:last-child {
         .page-link {
-          @include border-right-radius($border-radius);
+          @include border-inline-end-radius($border-radius);
         }
       }
     } @else {

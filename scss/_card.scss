@@ -25,12 +25,12 @@
 
     &:first-child {
       border-top-width: 0;
-      @include border-top-radius($card-inner-border-radius);
+      @include border-block-start-radius($card-inner-border-radius);
     }
 
     &:last-child  {
       border-bottom-width: 0;
-      @include border-bottom-radius($card-inner-border-radius);
+      @include border-block-end-radius($card-inner-border-radius);
     }
   }
 
@@ -136,19 +136,19 @@
 }
 
 .card-img,
-.card-img-top,
-.card-img-bottom {
+.card-img-bs,
+.card-img-be {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
 }
 
 .card-img,
-.card-img-top {
-  @include border-top-radius($card-inner-border-radius);
+.card-img-bs {
+  @include border-block-start-radius($card-inner-border-radius);
 }
 
 .card-img,
-.card-img-bottom {
-  @include border-bottom-radius($card-inner-border-radius);
+.card-img-be {
+  @include border-block-end-radius($card-inner-border-radius);
 }
 
 
@@ -181,14 +181,14 @@
       // Handle rounded corners
       @if $enable-rounded {
         &:not(:last-child) {
-          @include border-right-radius(0);
+          @include border-inline-end-radius(0);
 
-          .card-img-top,
+          .card-img-bs,
           .card-header {
             // stylelint-disable-next-line property-blacklist
             border-top-right-radius: 0;
           }
-          .card-img-bottom,
+          .card-img-be,
           .card-footer {
             // stylelint-disable-next-line property-blacklist
             border-bottom-right-radius: 0;
@@ -196,14 +196,14 @@
         }
 
         &:not(:first-child) {
-          @include border-left-radius(0);
+          @include border-inline-start-radius(0);
 
-          .card-img-top,
+          .card-img-bs,
           .card-header {
             // stylelint-disable-next-line property-blacklist
             border-top-left-radius: 0;
           }
-          .card-img-bottom,
+          .card-img-be,
           .card-footer {
             // stylelint-disable-next-line property-blacklist
             border-bottom-left-radius: 0;
@@ -225,11 +225,11 @@
 
     &:not(:last-of-type) {
       border-bottom: 0;
-      @include border-bottom-radius(0);
+      @include border-block-end-radius(0);
     }
 
     &:not(:first-of-type) {
-      @include border-top-radius(0);
+      @include border-block-start-radius(0);
     }
 
     > .card-header {
